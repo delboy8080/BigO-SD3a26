@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Pair.h"
+#include "DynamicArray.h"
 using namespace std;
 
 void question1();
@@ -11,7 +12,7 @@ void question6();
 
 int main()
 {
-	question4();
+	question5();
 }
 struct book
 {
@@ -95,4 +96,27 @@ void question4()
 	Pair<string, string> p2("Hello", "Greeting");
 	Pair<int, book> p3(1, book("One flew over the cuckoos nest"));
 	cout << p1 << p2 << p3 << endl;
+}
+
+void question5()
+{
+	DynamicArray<char> chars;
+	for (int i = 65; i < 91;i++)
+	{
+		cout << i << endl;
+		chars.add(i);
+	}
+	cout << chars;
+	try
+	{
+		chars[99] = 0;
+	}
+	catch (std::logic_error e)
+	{
+		cout << e.what() << endl;
+	}
+	chars[0] = 'a';
+	cout << chars;
+	chars.remove(0);
+	cout << chars;
 }
